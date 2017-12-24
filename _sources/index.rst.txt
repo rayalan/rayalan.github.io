@@ -1,0 +1,41 @@
+
+Welcome to Binary Adages
+========================
+
+Ah, computers. They made the world go around, and yet they are so literal. We spend years learning how to tell them what to do. And then they fail with spectacular blue screens and useless messages like "I'm sorry Dave, I can't do that." or "Null pointer error at address 0x0088001B."
+
+Here, I write about a variety of the tips, tricks, and idiosyncrasies I encounter as a developer. Why do I write? Primarily because:
+
+1. To contribute
+
+  In the course of developing, I've benefited immensely from other developers who have posted their arcane knowledge. And from authors like `Joel Spolsky`_ whose articles have shaped my view of programming. Hopefully other developers while find portions of my writings similarly useful.
+
+2. For personal documentation
+
+  There's a deep irksome quality to solving a hard problem or bug and then but then losing the key insights that led to that solution. If it was worth solving once, it should stay solved forever. Or until someone pays me several million dollars to bury the solution.
+
+3. To learn reStructuredText and Sphinx
+
+  One of my goals is to get better at documenting code, as part of that, I'm learning Sphinx and reStructuredText. Since I learn better through usage and encountering real problems, this blog should give some good learning opportunities.
+
+Recent Posts
+------------
+
+.. postlist:: 5
+   :excerpts:
+
+.. `toctree` directive, below, contains list of non-post `.rst` files.
+   This is how they appear in Navigation sidebar. Note that directive
+   also contains `:hidden:` option so that it is not included inside the page.
+
+   Posts are excluded from this directive so that they aren't double listed
+   in the sidebar both under Navigation and Recent Posts.
+
+.. toctree::
+   :hidden:
+
+   about.rst
+
+Or :ref:`read more <about>` about my interests and software package reflections.
+
+.. _Joel Spolsky: https://www.joelonsoftware.com/

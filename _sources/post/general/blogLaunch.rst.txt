@@ -1,0 +1,52 @@
+.. post:: Dec 23, 2017
+   :tags: ablog, sphinx
+   :category: general
+   :author: Alan Ray
+   :excerpt: 4
+
+Blog Launch
+===========
+
+In developing this blog, there were two key questions:
+
+- What was I going to write about?
+
+- What technology was I going to use?
+
+The second question is the quintessential in software: Given a problem, what software stack are you going to use to solve it? (The first question the quintessential project problem, but this blog is not about project management.) So I made a quick mental checklist of what I valued:
+
+1. I want to write about software development, including coding.
+2. I want the blogging update process to be quick and easy.
+3. I don't want to be committed to a particular blogging platform.
+4. I don't want to look like a complete idiot to a prospective employer or customer. All else being equal, I'd prefer to look like a genius.
+5. I want the benefits of source control.
+
+And from this, some value propositions start emerging, such as:
+
+- *I value content and ease of use over aesthetic*
+- *I value the ability to communicate about code in writing*
+- *I value being gainfully employed -- or at least having an income*
+
+Most of this is fairly straightforward: I want blogging to be fun and easy for me. I care somewhat about aesthetic, but I don't want dealing with it to consume much time. I am not primarily a CSS/HTML developer, and don't see the need for my public persona to come across as one.
+
+The source control thought is harder to unpack. One of the biggest differences in software packages is between ones that are primarily text based (such as as Ansible or Buildbot) and ones that use GUIs (such as Jenkins) or propriety formats (such as Quicken). Text has some really nice properties:
+
+- Any editor can modify it. Even a remote vi editor connected via dial-up will suffice. And programming languages love text. Especially if you play nice and don't test their unicode/utf capabilities.
+- Computers are really good at dealing with text. They can search it, compare it, parse it, change it, and often merge it together. Perhaps because computers have been solving these problems for decades.
+- Humans are pretty good at text.
+
+Tangent: As a whole, I posit that the rise of high-speed communications and cheap data storage has led developers to undervalue written communication. Good writing -- effectively organizing, abstracting, and presenting information -- is hard, but it has significant advantages over video learning: Reading is faster; content can be easily skimmed, referenced, or reviewed; writing is easier to edit and polish.
+
+Conveniently, I've been working recently with a product designed to communicate about code, primarily in writing, through structured text: Sphinx, which is designed for documenting code and generating nice-enough HTML pages. And what is a blog except a bunch of webpages with some formatted text? Better yet, if I got ambitious, I could swap out the styling or write my own CSS. As a bonus, I have been wanting to learn how to document my software better, so I now have an excuse to learn the tools better.
+
+But this solution left a few problems: Blogs typically have a few special features I wanted without much hassle, such as :ref:`blog-posts` or :ref:`blog-tags`. (I decided I didn't care about other functionality such as comment or analytics.) So turning to every developer's most powerful tool, Google, I discovered a handy open source extension to Sphinx that added such directive and templates for that functionality. Conveniently, it also included deployment to one's GitHub page (not that a script to push files would have been that hard to write).
+
+On the downside, when I went to run make my first ABlog project, it through up an error. Some more Googling and reading of existing pull requests turned up that there were outstanding pull requests for fixes due to Sphinx and Python advancements. After applying them, everything seems to be working nicely. This development is a bit discouraging on the ABlog front -- I don't really want to become the maintainer of an ABlog fork.
+
+And the upshot is that I have:
+
+* An easy to write blog, under source control, that I can edit, modify, and update.
+* An easy to publish blog that is current published to my GitHub pages, but I can move elsewhere when I want to change my public presence.
+* The blogging features I care about currently such as tags, categories, and post references.
+* An update path to advanced features I might care about such as comments or analytics.
+* A topic for a blog post.

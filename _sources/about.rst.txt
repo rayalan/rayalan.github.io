@@ -1,0 +1,91 @@
+.. _about:
+
+About Alan Ray
+==============
+
+Alan develops software across a variety of platforms and languages, including C/C++, Python, and JavaScript. His interests include software automation, boilerplate reduction, modularity, and productivity tricks.
+
+In his spare time, Alan ponders game design, personal finances, entrepreneurship and solving the world's problems with a computer. Pet peeves include vendor lock-in and undocumented features.
+
+Software I Love
+---------------
+
+Some tools are amazing packages that represent the kind of software I want to write. At their best, they simplify complex problems into ones I can solve, make learning and using software easy through good documentation, and adapt readily to the specifics of my situation. The best ones understand their problem domain better than I do and guide me down routes that safeguard me from common pitfalls.
+
+The question is not "Does the product have a good tutorial for toy problems?" but "When I go to use the tool in a production environment with a thousand strange requirements resulting from legacy systems, other software choices, and my own quirks, how usable is the software?" Many packages are easy to get started with, but adapt terribly to the realities of developer life.
+
+Here are some of the packages I've worked with enough to come to love:
+
+Ansible_
+
+  There's not a lot of competition in the push-driven configuration + Python world, but Ansible gets a lot of automation right. The ability to not just document system state, but actively check whether the documented system state matches the actual state is incredibly valuable, as is the ability to spin up new servers with the same configuration.
+
+  Working with Ansible has inspired me to work toward automating my home computer setup.
+
+  My biggest gripes are with the documentation. First, too many concepts are common search terms, which makes it hard to find the right entries in the documentation. Secondly, key details are often casually mentioned in offhand one-liners. This often leaves one with the feeling "I know there was a discussion of why feature X didn't work in mode Y when Z, but where was that documented?"
+
+.. _Ansible:
+
+`Beyond Compare`_
+
+  When it comes to side-by-side diff and merge resolution tools for text, Beyond Compare is my magic bullet. I don't use it often, but every few months, this tool saves me hours of work. They've also expanded into new tricks like comparing images which I am less familiar with.
+
+.. _Beyond Compare: https://www.scootersoftware.com/
+
+Fabric_
+
+  When one wants to reliably connect to other machines and run commands, Fabric does this. The few times I've needed to do something complex, I've found the support in the documentation but mostly the package has invisibly disappeared into the background. My biggest regret is that I haven't spent more time using it; I suspect it can do more than I'm currently leveraging it for.
+
+.. _Fabric: http://www.fabfile.org/
+
+Sphinx_
+
+  There's a reason why this is the main player in the Python documentation world. My biggest regret with this software is that auto-documentation of C/C++ still goes through Doxygen. However, given the complexity of C/C++ parsing, that's probably a smart decision on the part of the Sphinx developers.
+
+.. _Sphinx: http://www.sphinx-doc.org
+
+Software I Like
+---------------
+
+\...and maybe hate a little bit. Not all software is amazing. Much of it is good and essential, but missing that extra ingredient to set it apart. Often this kind of software is the only solid solution to an important problem, but it isn't quite what I want: Documentation is poor, it customizes poorly to my workflow, or it has significant drawbacks for certain situations.
+
+Celery_
+
+  A Python package when one needs asynchronous background tasks. Well documented, it makes asynchronous distributed tasks almost a joy to work with -- which is a good thing, since it almost the only player in town for these problems.
+
+  The downsides to Celery comes in productionizing it: It has tended to be hard to process manage, hard to track status on, and hard to debug/log. On paper, all of these solutions have external solutions such as supervisor, Celery Flower, and builtin Celery logging. But I haven't been able to spend a lot of time on these solutions, and I have never gotten them working smoothly.
+
+  Most of my experience is with Celery 3.x; I want to try out the 4.x series.
+
+.. _Celery: http://www.celeryproject.org/
+
+`Sublime Text`_
+
+  As a cross-platform cross-language developer, I love Sublime Text as a consistent quality editor across all my work. Extensibility, a large plugin collection, and multi-line editing are gravy on top.
+
+  However, Sublime configuration never feels properly settled: I always want to be tweaking my workflow, but often find the tweaking causes more problems than it solves. I want a larger snippet library, but I find it hard to manage. I can't figure out why the complicated substitution regex in my snippets isn't working the way I expect. The Intellisense plugin isn't finding code the way I want, but doesn't seem to be logging any errors. Oh, there are project settings as well as syntax settings? That makes sense, but wasn't obvious. Basically, I want configuring my workflow to be less work.
+
+.. _Sublime Text: https://www.sublimetext.com/
+
+.. Sublime Text:
+
+Software On My Radar
+--------------------
+
+This category is software that catches my attention, but I have not worked with enough to develop a confident opinion: Often I've found the software useful but with significant weaknesses, but I have not used the software enough to know if the weaknesses are in the product or my limited use.
+
+ABlog_
+
+  The software I use to develop this blog. It seems to be the main game in town when it comes to making blogs with Sphinx.
+
+  The biggest downside to date has been having to make a custom fork because it has not been updated to account for recent changes to Sphinx and Python, even though other developers have posted pull requests (which at least made the fork easy).
+
+.. _ABlog: http://ablog.readthedocs.io/
+
+`AngularJS 1.x`_
+
+  As my first introduction to web apps, Angular brought a lot of backend concepts (data and UI separation, classes, services) easily into play. I really appreciated the way that it made web programming a lot like every other kind of programming. The documentation is reasonably -- perhaps even good, if I had been more familiar with web programming at the time, but I often found solutions presumed too much on my understanding.
+
+  Note that AngularJS (formerly 2.x) is very different, and other frameworks have adapted many of the principles that made Angular easy to work with at the time.
+
+.. _AngularJS 1.x: https://angularjs.org/

@@ -1,0 +1,216 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>About Alan Ray &#8212; Binary Adages 1.0a1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="prev" title="Welcome to Binary Adages" href="../" />
+  
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../blog/atom.xml" title="Binary Adages">
+  
+  
+  <link href="True" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-alan-ray">
+<span id="about"></span><h1>About Alan Ray<a class="headerlink" href="#about-alan-ray" title="Permalink to this headline">¶</a></h1>
+<p>Alan develops software across a variety of platforms and languages, including C/C++, Python, and JavaScript. His interests include software automation, boilerplate reduction, modularity, and productivity tricks.</p>
+<p>In his spare time, Alan ponders game design, personal finances, entrepreneurship and solving the world’s problems with a computer. Pet peeves include vendor lock-in and undocumented features.</p>
+<div class="section" id="software-i-love">
+<h2>Software I Love<a class="headerlink" href="#software-i-love" title="Permalink to this headline">¶</a></h2>
+<p>Some tools are amazing packages that represent the kind of software I want to write. At their best, they simplify complex problems into ones I can solve, make learning and using software easy through good documentation, and adapt readily to the specifics of my situation. The best ones understand their problem domain better than I do and guide me down routes that safeguard me from common pitfalls.</p>
+<p>The question is not “Does the product have a good tutorial for toy problems?” but “When I go to use the tool in a production environment with a thousand strange requirements resulting from legacy systems, other software choices, and my own quirks, how usable is the software?” Many packages are easy to get started with, but adapt terribly to the realities of developer life.</p>
+<p>Here are some of the packages I’ve worked with enough to come to love:</p>
+<p><a class="reference internal" href="#ansible">Ansible</a></p>
+<blockquote>
+<div><p>There’s not a lot of competition in the push-driven configuration + Python world, but Ansible gets a lot of automation right. The ability to not just document system state, but actively check whether the documented system state matches the actual state is incredibly valuable, as is the ability to spin up new servers with the same configuration.</p>
+<p>Working with Ansible has inspired me to work toward automating my home computer setup.</p>
+<p>My biggest gripes are with the documentation. First, too many concepts are common search terms, which makes it hard to find the right entries in the documentation. Secondly, key details are often casually mentioned in offhand one-liners. This often leaves one with the feeling “I know there was a discussion of why feature X didn’t work in mode Y when Z, but where was that documented?”</p>
+</div></blockquote>
+<p id="ansible"><a class="reference external" href="https://www.scootersoftware.com/">Beyond Compare</a></p>
+<blockquote>
+<div>When it comes to side-by-side diff and merge resolution tools for text, Beyond Compare is my magic bullet. I don’t use it often, but every few months, this tool saves me hours of work. They’ve also expanded into new tricks like comparing images which I am less familiar with.</div></blockquote>
+<p><a class="reference external" href="http://www.fabfile.org/">Fabric</a></p>
+<blockquote>
+<div>When one wants to reliably connect to other machines and run commands, Fabric does this. The few times I’ve needed to do something complex, I’ve found the support in the documentation but mostly the package has invisibly disappeared into the background. My biggest regret is that I haven’t spent more time using it; I suspect it can do more than I’m currently leveraging it for.</div></blockquote>
+<p><a class="reference external" href="http://www.sphinx-doc.org">Sphinx</a></p>
+<blockquote>
+<div>There’s a reason why this is the main player in the Python documentation world. My biggest regret with this software is that auto-documentation of C/C++ still goes through Doxygen. However, given the complexity of C/C++ parsing, that’s probably a smart decision on the part of the Sphinx developers.</div></blockquote>
+</div>
+<div class="section" id="software-i-like">
+<h2>Software I Like<a class="headerlink" href="#software-i-like" title="Permalink to this headline">¶</a></h2>
+<p>…and maybe hate a little bit. Not all software is amazing. Much of it is good and essential, but missing that extra ingredient to set it apart. Often this kind of software is the only solid solution to an important problem, but it isn’t quite what I want: Documentation is poor, it customizes poorly to my workflow, or it has significant drawbacks for certain situations.</p>
+<p><a class="reference external" href="http://www.celeryproject.org/">Celery</a></p>
+<blockquote>
+<div><p>A Python package when one needs asynchronous background tasks. Well documented, it makes asynchronous distributed tasks almost a joy to work with – which is a good thing, since it almost the only player in town for these problems.</p>
+<p>The downsides to Celery comes in productionizing it: It has tended to be hard to process manage, hard to track status on, and hard to debug/log. On paper, all of these solutions have external solutions such as supervisor, Celery Flower, and builtin Celery logging. But I haven’t been able to spend a lot of time on these solutions, and I have never gotten them working smoothly.</p>
+<p>Most of my experience is with Celery 3.x; I want to try out the 4.x series.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a></p>
+<blockquote>
+<div><p>As a cross-platform cross-language developer, I love Sublime Text as a consistent quality editor across all my work. Extensibility, a large plugin collection, and multi-line editing are gravy on top.</p>
+<p>However, Sublime configuration never feels properly settled: I always want to be tweaking my workflow, but often find the tweaking causes more problems than it solves. I want a larger snippet library, but I find it hard to manage. I can’t figure out why the complicated substitution regex in my snippets isn’t working the way I expect. The Intellisense plugin isn’t finding code the way I want, but doesn’t seem to be logging any errors. Oh, there are project settings as well as syntax settings? That makes sense, but wasn’t obvious. Basically, I want configuring my workflow to be less work.</p>
+</div></blockquote>
+</div>
+<div class="section" id="software-on-my-radar">
+<h2>Software On My Radar<a class="headerlink" href="#software-on-my-radar" title="Permalink to this headline">¶</a></h2>
+<p>This category is software that catches my attention, but I have not worked with enough to develop a confident opinion: Often I’ve found the software useful but with significant weaknesses, but I have not used the software enough to know if the weaknesses are in the product or my limited use.</p>
+<p><a class="reference external" href="http://ablog.readthedocs.io/">ABlog</a></p>
+<blockquote>
+<div><p>The software I use to develop this blog. It seems to be the main game in town when it comes to making blogs with Sphinx.</p>
+<p>The biggest downside to date has been having to make a custom fork because it has not been updated to account for recent changes to Sphinx and Python, even though other developers have posted pull requests (which at least made the fork easy).</p>
+</div></blockquote>
+<p><a class="reference external" href="https://angularjs.org/">AngularJS 1.x</a></p>
+<blockquote>
+<div><p>As my first introduction to web apps, Angular brought a lot of backend concepts (data and UI separation, classes, services) easily into play. I really appreciated the way that it made web programming a lot like every other kind of programming. The documentation is reasonably – perhaps even good, if I had been more familiar with web programming at the time, but I often found solutions presumed too much on my understanding.</p>
+<p>Note that AngularJS (formerly 2.x) is very different, and other frameworks have adapted many of the principles that made Angular easy to work with at the time.</p>
+</div></blockquote>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../">Binary Adages</a></h1>
+
+
+
+<p class="blurb">Reflections on Software Engineering</p>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search/" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3><a href="../blog/">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="../post/general/blogLaunch/">Dec 23 - Blog Launch</a></li>
+    
+  </ul>
+
+  <h3><a href="../blog/tag/">Tags</a></h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="../blog/tag/ablog/">ablog</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="../blog/tag/sphinx/">sphinx</a></li>
+      
+    
+  </ul>
+
+  <h3><a href="../blog/category/">Categories</a></h3>
+  <ul>
+  
+    
+    <li><a href="../blog/category/general/">general (1)</a></li>
+    
+  
+  </ul>
+
+  <h3><a href="../blog/archive/">Archives</a></h3>
+  <ul>
+  
+    
+    <li><a href="../blog/2017/">2017 (1)</a></li>
+    
+  
+  </ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 - 2018, Alan Ray.
+      
+      |
+      <a href="../_sources/about.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
