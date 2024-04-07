@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Binary Adages - projects</title><link href="https://rayalan.github.io/" rel="alternate"></link><link href="https://rayalan.github.io/feeds/projects.atom.xml" rel="self"></link><id>https://rayalan.github.io/</id><updated>2022-06-06T00:00:00-04:00</updated><entry><title>Blog Revamp</title><link href="https://rayalan.github.io/blog-revamp.html" rel="alternate"></link><published>2022-06-06T00:00:00-04:00</published><updated>2022-06-06T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2022-06-06:/blog-revamp.html</id><summary type="html">
+&lt;p&gt;It’s been about five years since my last attempt at a blog, in which I think I wrote a post&lt;sup id="fnref:old-blog"&gt;&lt;a class="footnote-ref" href="#fn:old-blog"&gt;2&lt;/a&gt;&lt;/sup&gt;. With a bit of spare time on my hands, I want to revamp my setup…&lt;/p&gt;
+&lt;h1 id="revamp-goals"&gt;Revamp Goals&lt;/h1&gt;
+&lt;p&gt;In no particular order, my goal was to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Revisit the technology …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">
+&lt;p&gt;It’s been about five years since my last attempt at a blog, in which I think I wrote a post&lt;sup id="fnref:old-blog"&gt;&lt;a class="footnote-ref" href="#fn:old-blog"&gt;2&lt;/a&gt;&lt;/sup&gt;. With a bit of spare time on my hands, I want to revamp my setup…&lt;/p&gt;
+&lt;h1 id="revamp-goals"&gt;Revamp Goals&lt;/h1&gt;
+&lt;p&gt;In no particular order, my goal was to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Revisit the technology selection (especially &lt;a href="https://ablog.readthedocs.io/"&gt;ABlog&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Use a DevOps-oriented approach (e.g. text, source control).&lt;/li&gt;
+&lt;li&gt;Trivially include &lt;a href="https://mermaid-js.github.io/mermaid/#/"&gt;Mermaid.js&lt;/a&gt; diagrams.&lt;/li&gt;
+&lt;li&gt;Trivially include simple charts.&lt;/li&gt;
+&lt;li&gt;Hone and improve my skills.&lt;/li&gt;
+&lt;li&gt;Spend less than a week creating the platform.&lt;/li&gt;
+&lt;li&gt;Make the blog look decent initially.&lt;/li&gt;
+&lt;li&gt;Be prepared to iterate in the future.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="rationale"&gt;Rationale&lt;/h1&gt;
+&lt;p&gt;Why these goals?&lt;/p&gt;
+&lt;p&gt;Overall, I write to talk about the art of software development. My primary medium is words, sentences, articles. I lean heavily toward longer, more thoughtful pieces. So a blog, not a Twitter or YouTube account.&lt;/p&gt;
+&lt;p&gt;Yet maintaining interest with a long wall of words is hard. Furthermore, the complexities of software development often benefit from pictures to demonstrate key concepts. I’ve really enjoyed working with Mermaid.js over the last couple years, and it can trivially do about 80% of what I envision wanting for visualizations. However, Mermaid can’t (yet) do simple illustrations such as Jessica Hagy does with &lt;a href="https://thisisindexed.com/"&gt;Indexed&lt;/a&gt;. So I need to be able to do a bit more than just what Mermaid supports.&lt;/p&gt;
+&lt;p&gt;As a long-time developer, text is easy to edit, merge, and otherwise manage in source control. Something like Markdown makes it easy to reskin the whole blog later without touching any of the content. Tools like Mermaid.js are useful precisely because they allow text to be easily rendered as a visualization, giving the best of both worlds.&lt;/p&gt;
+&lt;p&gt;For the project, I want to find the right balance between getting it set up enough that I don’t have to quickly revisit my choices, and not have to worry about getting every &lt;em&gt;i&lt;/em&gt; dotted before working on writing. I know that I tend to ignore aesthetics, but a hideous blog will quickly turn others away, so it needs some early attention.&lt;/p&gt;
+&lt;p&gt;Finally, I wanted to revisit the technology selection for a few reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For as rarely as I write, I find ABlog and &lt;a href="https://www.sphinx-doc.org/en/master/"&gt;Sphinx&lt;/a&gt; to be a bit too complicated for my tastes.&lt;/li&gt;
+&lt;li&gt;I last picked the technology stack for my blog five years ago; now I know more, and the tech landscape has changed.&lt;/li&gt;
+&lt;li&gt;ABlog is no longer with its original developer and almost entirely in maintenance mode. I’ve hit a few sharp edges when trying to integrate it with other Sphinx plugins, and I don’t really want to keep dealing with that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="execution"&gt;Execution&lt;/h1&gt;
+&lt;p&gt;So how did the plan go?&lt;/p&gt;
+&lt;h2 id="markdown-and-pelican"&gt;Markdown and Pelican&lt;/h2&gt;
+&lt;p&gt;A bit of Googling turned up &lt;a href="https://getpelican.com/"&gt;Pelican&lt;/a&gt; as a simple way to generate static sites from text. It supported multiple themes, seemed more straight forward, and already supported a Mermaid extension. From prior experience, I knew that GitHub was an easy way to host a static site, and there was already existing Python/Pelican support for exactly that via &lt;a href="https://github.com/c-w/ghp-import"&gt;ghp-import&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I’d also wanted to consider MarkDown as it has become the lingua franca for so much documentation&lt;sup id="fnref:markdoc"&gt;&lt;a class="footnote-ref" href="#fn:markdoc"&gt;1&lt;/a&gt;&lt;/sup&gt;. Diving into MarkDown extensions revealed that a number of improvements had been made that brought it close to par with reStructuredText, at least for my needs – in particular, tables of contents, footnotes, definition lists, and metadata.&lt;/p&gt;
+&lt;p&gt;Spinning up a basic Python+Pelican blog went crazy fast. Pelican had good documentation, a quickstart feature along with development support for local hosting, caching, and automatic rebuilding on change. Once set up, I had a really fast writing loop. The biggest glitch was some experimentation around properly loading and configuring the Markdown extensions, which were poorly documented.&lt;/p&gt;
+&lt;h2 id="elegant"&gt;Elegant&lt;/h2&gt;
+&lt;p&gt;Pelican claims a list of &lt;a href="http://www.pelicanthemes.com/"&gt;127 themes&lt;/a&gt;. Good design on Pelican’s part made it trivial to swap out themes, and I quickly found a very thoughtful theme called &lt;a href="https://github.com/Pelican-Elegant/elegant"&gt;Elegant&lt;/a&gt;, which was carefully thought out. Their documentation entries on design philosophy reflect a deep interest in user experience and brought in lots of cool features such as subtitles, series, tags, and automatic interlinking. It also supported Pelican plugins such as comments (e.g., Disqus), analytics (Google), and a reasonable static page display.&lt;/p&gt;
+&lt;p&gt;However, a few problems started cropping up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pelican is changing over its plugin system, and now that I had a table of contents-supporting theme, it was clear extracting the table of contents through Pelican required a bit of elbow grease.&lt;/li&gt;
+&lt;li&gt;Elegant’s search expects to use a plugin called Tipue Search, which is deprecated. Worse yet, Elegant hasn’t been updated to use the replacement (which doesn’t appear to be Windows friendly) and lacks a configurable option to disable search.&lt;/li&gt;
+&lt;li&gt;Pelican/Elegant don’t support overriding the theme in a way that supports keeping Elegant’s code unmodified for easy updates.&lt;/li&gt;
+&lt;li&gt;The &lt;a href="https://elegant.oncrashreboot.com/"&gt;Elegant demonstration page&lt;/a&gt; (which I used to decide Elegant was a good theme) has gone dark. It might be a temporary glitch, but given the lack of Elegant development for a couple years and Elegant being a theme for a static site, it suggests that its maintainers really have moved on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="adjustments"&gt;Adjustments&lt;/h3&gt;
+&lt;p&gt;I ended up making a few changes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I decided I wouldn’t support search functionality for now. It’s a fantastic feature, but getting &lt;a href="https://github.com/pelican-plugins/search"&gt;Stork&lt;/a&gt; (the Tipue Search replacement) running on a Windows box where I don’t even have WSL configured isn’t worth the time. In the near term, tags and categories should provide plenty of visibility into my small blog, and I can iterate on search in the future. In the very near term, I can even live with a broken search box.&lt;/li&gt;
+&lt;li&gt;I took the old Pelican plugin for table of contents and placed a copy (it is about 70 lines) in my blog. In the future, I can look into making the native Markdown table of contents extension play with Pelican/Elegant’s expectations, or perhaps the plugin will be made a standard Pelican plugin. For now, the local file is a small nuisance.&lt;/li&gt;
+&lt;li&gt;I forked the Elegant theme and made it a submodule rather than installing it via &lt;a href="https://docs.getpelican.com/en/stable/pelican-themes.html"&gt;pelican-themes&lt;/a&gt;. The downside is that applying Elegant updates will be significantly harder than I would prefer – although there don’t seem to be many these days. On the plus side, I can make personal modifications such as removing the search box, making search box optional, or customizing the CSS.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For now, the possibility that Elegant is end-of-life doesn’t concern me. It looks better than I can quickly do on my own, gives me a jumping off point for the feature, and is disconnected enough from Pelican or my content that I can iterate in the future.&lt;/p&gt;
+&lt;h2 id="mermaid"&gt;Mermaid&lt;/h2&gt;
+&lt;p&gt;In theory, &lt;a href="https://pypi.org/project/md-mermaid/"&gt;Mermaid support&lt;/a&gt; should have been about one line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install md-mermaid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But that didn’t work because of some error about md_globals. Diving into that revealed that the Markdown interface had progressed but that the md-mermaid extension hadn’t been updated - despite someone posting the patch about a month ago.&lt;/p&gt;
+&lt;p&gt;Additionally, I realized that the plugin assumed that the Mermaid JS files were already included in the HTML. Because I prototyped the Mermaid integration before selecting Elegant, I was hoping to avoid messing with the CSS templates.&lt;/p&gt;
+&lt;h3 id="adjustments_1"&gt;Adjustments&lt;/h3&gt;
+&lt;p&gt;As a result, I forked md-mermaid to support:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The most modern Markdown interface&lt;/li&gt;
+&lt;li&gt;Configuration options for which Mermaid url and version&lt;/li&gt;
+&lt;li&gt;Configuration options for automatically including the Mermaid JS files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As an added bonus, these changes will make it far easier to passing styling options to Mermaid if I want a more consistent look. Hopefully the md-mermaid plugin isn’t dead, and my changes can be re-integrated.&lt;/p&gt;
+&lt;h3 id="demonstration"&gt;Demonstration&lt;/h3&gt;
+&lt;p&gt;What’s the end result? Well, here’s a quick flowchart of my plan:&lt;/p&gt;
+&lt;div class="mermaid"&gt;
+
+flowchart LR
+   plan --&amp;gt; pelican --&amp;gt; md-mermaid
+   pelican --&amp;gt; elegant
+   pelican --&amp;gt; svg
+   svg --&amp;gt; success
+   elegant --&amp;gt; success
+   md-mermaid --&amp;gt; success
+&lt;/div&gt;
+&lt;p&gt;It may get a bit sharper as I work on styling in the future, but it’s a lot better than a wall of text.&lt;/p&gt;
+&lt;h2 id="other-charts-svg"&gt;Other charts (SVG)&lt;/h2&gt;
+&lt;p&gt;Finally, I wanted to be able to do a bit more with simple charts and diagrams than Mermaid supports. Diving into it, there is a long list of options, from D3 to free plugins to commercial plugins.&lt;/p&gt;
+&lt;p&gt;I ended up settling on SVG for a few reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dirt simple for basic functionality&lt;/li&gt;
+&lt;li&gt;Text-based, keeping with the philosophy of configuration-as-code, source control, and the like.&lt;/li&gt;
+&lt;li&gt;Capable of far more advanced capabilities if I need it in the future.&lt;/li&gt;
+&lt;li&gt;Supports CSS styling&lt;/li&gt;
+&lt;li&gt;Many tools support exporting to SVG, letting me pick from a wide array of tools in the future to make my diagrams.&lt;/li&gt;
+&lt;li&gt;Markdown already supported including SVGs via including images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="adjustments_2"&gt;Adjustments&lt;/h3&gt;
+&lt;p&gt;My first attempt at SVGs failed miserably:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;![My first diagram](/assets/images/diagram-first.svg)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It turns out that SVGs that are included as images can’t be styled by CSS. I’m sure there’s a great reason why SVGs have three slightly incompatible ways of being used, but it’s a prime example of why software is difficult: I want to include an image in my Markdown and have it JustWork, and it won’t because of weird technical nuance.&lt;/p&gt;
+&lt;p&gt;After digging through Stack Overflow, tutorials, and some experimentation, I figured out how to use an HTML object directly in Markdown text to specify an object:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;object&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"image/svg+xml"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;data=&lt;/span&gt;&lt;span class="s"&gt;"images/simple-svg-sample.svg"&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"svg"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Simple&lt;span class="w"&gt; &lt;/span&gt;SVG&lt;span class="w"&gt; &lt;/span&gt;Image&lt;span class="w"&gt; &lt;/span&gt;(unstyled)&lt;span class="cm"&gt;&amp;lt;!-- fallback image in CSS --&amp;gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It isn’t as clean as the original syntax, but it works. I also figured out how to specify the viewbox so that the right column of the Elegant theme overlaps with the images.&lt;/p&gt;
+&lt;h3 id="demonstration_1"&gt;Demonstration&lt;/h3&gt;
+&lt;p&gt;Here’s my first simple SVG image:&lt;/p&gt;
+&lt;object class="svg" data="images/simple-svg-sample.svg" type="image/svg+xml"&gt;Simple SVG Image (unstyled)&lt;!-- fallback image in CSS --&gt;&lt;/object&gt;
+&lt;p&gt;And here’s one with some labels and a bit more styling:&lt;/p&gt;
+&lt;object class="svg" data="images/inline-svg-sample.svg" type="image/svg+xml"&gt;Styled inline SVG Image&lt;!-- fallback image in CSS --&gt;&lt;/object&gt;
+&lt;p&gt;It isn’t perfect by a long shot, but the basic capability is there. In the future, maybe I’ll look for a way to teach Markdown to include SVG images inline.&lt;/p&gt;
+&lt;h1 id="retrospective"&gt;Retrospective&lt;/h1&gt;
+&lt;p&gt;Looking back, how did the project go?&lt;/p&gt;
+&lt;p&gt;Overall, I’m very happy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The tech stack is revamped with a nicer theme; I can easily use diagrams, and I have understood several future problems if I ever want to tackle them.&lt;/li&gt;
+&lt;li&gt;I ended up with a text-based solution that supports experimentation, quick rollouts, and reversions.&lt;/li&gt;
+&lt;li&gt;The week I spent was in line with my expectations and included defining several future possible iterations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lessons learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tying technologies together is always trickier than it first appears.&lt;/li&gt;
+&lt;li&gt;Windows (the operating system) is definitely a second-class citizen when it comes to many technologies (such as Stork). It’s hard to get a clean, simple, and full-featured technology stack for Windows.&lt;/li&gt;
+&lt;li&gt;I wonder if a JS-based solution (e.g. Markdoc) would have yielded a cleaner solution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script src="https://unpkg.com/mermaid/dist/mermaid.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+&lt;div class="footnote"&gt;
+&lt;hr/&gt;
+&lt;ol&gt;
+&lt;li id="fn:markdoc"&gt;
+&lt;p&gt;Stripe recently released &lt;a href="https://markdoc.dev/"&gt;Markdoc&lt;/a&gt;, which is a bit beyond my personal efforts right now, but very much has my attention as a documentation system. &lt;a class="footnote-backref" href="#fnref:markdoc" title="Jump back to footnote 1 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:old-blog"&gt;
+&lt;p&gt;In fact, I didn’t even get all the blog committed to source control (oops!), so I ended up pulling the content from the published blog. However, my old system did provide the original reStructuredText for published pages, so getting the content was trivial. A good reminder of both how well configuration as code works as well as the importance of good processes. &lt;a class="footnote-backref" href="#fnref:old-blog" title="Jump back to footnote 2 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="projects"></category><category term="ablog"></category><category term="python"></category><category term="js"></category><category term="mermaid"></category><category term="markdown"></category><category term="restructured-text"></category><category term="svg"></category><category term="charts"></category></entry></feed>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Binary Adages - mistake monday</title><link href="https://rayalan.github.io/" rel="alternate"></link><link href="https://rayalan.github.io/feeds/mistake-monday.atom.xml" rel="self"></link><id>https://rayalan.github.io/</id><updated>2022-07-04T00:00:00-04:00</updated><entry><title>Paralyzing Success</title><link href="https://rayalan.github.io/mistake-monday-paralysis.html" rel="alternate"></link><published>2022-07-04T00:00:00-04:00</published><updated>2022-07-04T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2022-07-04:/mistake-monday-paralysis.html</id><summary type="html">
+&lt;p&gt;Retrospectives are one of the practices I most value from the Agile ceremonies: taking the time to look back, think over what happened, and learn from one’s decisions, good and bad. In today’s Mistake Monday article, I look back at a fundamental design flaw I made in many …&lt;/p&gt;</summary><content type="html">
+&lt;p&gt;Retrospectives are one of the practices I most value from the Agile ceremonies: taking the time to look back, think over what happened, and learn from one’s decisions, good and bad. In today’s Mistake Monday article, I look back at a fundamental design flaw I made in many of my early continuous integration / continuous development automations.&lt;/p&gt;
+&lt;p&gt;Here was my basic concept for how to roll out automation:&lt;/p&gt;
+&lt;div class="mermaid"&gt;
+
+flowchart LR
+  a --&amp;gt; b --&amp;gt; c --&amp;gt; b
+  a(no automation)
+  b(build automated build and deployment feature)
+  c(iteratively adopt feature)
+&lt;/div&gt;
+&lt;p&gt;Early on, there was almost no automated build or CI/CD support. Gradually I built up the capabilities and sold others on using the new capabilities. And for some time, this process went swimmingly. And then it ground to a halt.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;What had I done wrong?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Well, I had centralized the system. Basically, a change either went live to everyone, or to no one. And when the system did offer a choice of whether to adopt a feature, it was an all-or-nothing choice: Adopt all the feature improvements available, or adopt none of them.&lt;/p&gt;
+&lt;p&gt;As long as the number of users of the system was small, this centralization wasn’t a big deal. But the more teams that used the system, the more divergent their practices. Some didn’t want a feature. Or they wanted the feature, but not in the middle of crunch time. In some cases, they wanted to adopt the feature in one or two of their projects, but not all. Sometimes the changes required mandatory Python upgrades – which might not be backward compatible with all of that team’s build dependencies.&lt;/p&gt;
+&lt;p&gt;Eventually with enough teams, it was never a good time to upgrade. There was always an incompatibility. Someone always didn’t want to learn the new behavior. And so the system improvements stopped – the CI/CD capabilities became effectively frozen.&lt;/p&gt;
+&lt;h1 id="lessons-learned"&gt;Lessons Learned&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Massive one-shot rollouts are really hard. While they may be sometimes necessary, it is often far preferable to do gradual controlled rollouts.&lt;/li&gt;
+&lt;li&gt;Successful development isn’t just about having the solution, but in getting it adopted.&lt;/li&gt;
+&lt;li&gt;Self-contained project-specific build configuration has a lot of upside: Each project can change at its own pace, independent of any other system&lt;sup id="fnref:downside"&gt;&lt;a class="footnote-ref" href="#fn:downside"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;li&gt;Adoption and transition plans are first-class problems who need to be solved in designing the software. It isn’t enough to build the solution, and then ask: How are we going to roll this out? Yes, this approach makes software more expensive – but it’s a true part of the cost.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="a-happy-example"&gt;A Happy Example&lt;/h1&gt;
+&lt;p&gt;As a way of counter example in another of my projects (done later), behavior changes were made individually to hundreds of thousands of users. Each change included an explanatory e-mail, and the team managed how many of these changes went live each day. This allowed careful testing of the changes – including the notifications – before any users saw different behavior. Then the transition process was tested on small numbers of users. When those tests went well, the remaining users could be converted whenever. Because the same transition process was used from testing to the final conversions, there weren’t any late surprises.&lt;/p&gt;
+&lt;h1 id="final-thought"&gt;Final Thought&lt;/h1&gt;
+&lt;p&gt;In many cases, transitions and upgrades cannot be just an afterthought; they need to be part of the primary design.&lt;/p&gt;
+&lt;script src="https://unpkg.com/mermaid/dist/mermaid.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+&lt;div class="footnote"&gt;
+&lt;hr/&gt;
+&lt;ol&gt;
+&lt;li id="fn:downside"&gt;
+&lt;p&gt;Yes, having to update each project configuration to make a change is cost – sometimes a high one – to pay for this. &lt;a class="footnote-backref" href="#fnref:downside" title="Jump back to footnote 1 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="mistake monday"></category><category term="cicd"></category><category term="devops"></category><category term="agile"></category></entry></feed>

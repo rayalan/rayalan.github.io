@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://rayalan.github.io/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://rayalan.github.io/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Alan Ray" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="knowledge, uncertainty, practices and principles, " />
+
+<meta property="og:title" content="Blame Free Retrospectivs  - A problem of scope "/>
+<meta property="og:url" content="https://rayalan.github.io/blame-free-retros.html" />
+<meta property="og:description" content="I’m a huge fan of blame-free retrospectives / postmortems. Why? Because I believe that: High-trust environments are incredibly important to productivity in fields such as software development that involve a high degree of both judgement and technical complexity1. An essential part of high-trust environments is the assumption of good …" />
+<meta property="og:site_name" content="Binary Adages" />
+<meta property="og:article:author" content="Alan Ray" />
+<meta property="og:article:published_time" content="2023-11-07T00:00:00-05:00" />
+<meta name="twitter:title" content="Blame Free Retrospectivs  - A problem of scope ">
+<meta name="twitter:description" content="I’m a huge fan of blame-free retrospectives / postmortems. Why? Because I believe that: High-trust environments are incredibly important to productivity in fields such as software development that involve a high degree of both judgement and technical complexity1. An essential part of high-trust environments is the assumption of good …">
+
+        <title>Blame Free Retrospectivs  - A problem of scope  · Binary Adages
+</title>
+        <link href="https://rayalan.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Binary Adages - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://rayalan.github.io/"><span class=site-name>Binary Adages</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://rayalan.github.io
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://rayalan.github.io/pages/about.html">About</a></li>
+                                <li ><a href="https://rayalan.github.io/categories.html">Categories</a></li>
+                                <li ><a href="https://rayalan.github.io/tags.html">Tags</a></li>
+                                <li ><a href="https://rayalan.github.io/archives.html">Archives</a></li>
+                                <!-- li><form class="navbar-search" action="https://rayalan.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://rayalan.github.io/blame-free-retros.html">
+                Blame Free Retrospectivs
+                <small class="subtitle">
+                    A problem of scope
+                </small>
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p>I&rsquo;m a huge fan of <a href="https://www.blameless.com/blog/what-are-blameless-postmortems-do-they-work-how">blame-free retrospectives / postmortems</a>. Why?</p>
+<p>Because I believe that:</p>
+<ol>
+<li>High-trust environments are incredibly important to productivity in fields such as software development that involve a high degree of both judgement and technical complexity<sup id="fnref:complex"><a class="footnote-ref" href="#fn:complex">1</a></sup>.</li>
+<li>An essential part of high-trust environments is the assumption of good intent by all parties.</li>
+</ol>
+<p>In contrast, it&rsquo;s really hard to understand what is happening in a world where everyone is trying to cover for themselves. And even worse is a world where management is using the guise of blame-free conversations to covertly gather evidence against specific individuals with a goal of blaming them for outcomes. I&rsquo;ve been on the receiving end of that, and, unsurprisingly, it&rsquo;s incredibly toxic.</p>
+<h1 id="scope-or-lack-thereof">Scope (or lack thereof)</h1>
+<p>Even when postmortems are conducted blame free with the best intentions, though, there&rsquo;s often a more subtle problem: <em>All of the players aren&rsquo;t in the room.</em></p>
+<blockquote>
+<p><em>All of the players aren&rsquo;t in the room.</em></p>
+</blockquote>
+<p>Yes, all of the team is in the room. But consider who else likely made decisions:</p>
+<ol>
+<li>Did the team have complete control over architecture?</li>
+<li>Did the team have complete control over their own priorities?</li>
+<li>If there were any inter-team dependencies, did the team have complete control over how those were resolved?</li>
+<li>Did the team choose their own budget and timelines?</li>
+</ol>
+<p>In most companies, teams don&rsquo;t have complete autonomy. There are company standards. There are pressing business priorities. Product needs new features to ship. A key initiative will be blocked if such-n-such doesn&rsquo;t ship. Money is tight. Management wants to see results.</p>
+<p>And that means that teammates aren&rsquo;t the only people who made decisions contributing to the outage. Someone decided that the increasingly complex monolith wasn&rsquo;t worth splitting as the company grew. Someone decided that hiring more teammates wasn&rsquo;t important. Someone decided that the company wasn&rsquo;t going to offer 6 weeks of vacation a year as an incentive to attract the best people. Someone decided that the company focus was going to be the new feature launch, not testing and quality. Someone decided not to challenge the cultural norms around what was acceptable redundancy and prevention.</p>
+<p>Some of these decisions are certainly made by the team. And the team certainly could manage upward better. But, in every company I&rsquo;ve heard of, some of those decisions are beyond the team. And yet I find blame-free retros rarely step into the bigger picture, instead focusing on the tactical decisions.</p>
+<blockquote>
+<p>Blame-free retros rarely step into the bigger picture, instead focusing on the tactical decisions.</p>
+</blockquote>
+<h1 id="was-the-failure-a-bad-outcome">Was the failure a bad outcome?</h1>
+<p>I once had a conversation with the C-suite that went like this:</p>
+<p><em>Me: My team released a bug that cost us a five-figure amount from such-n-such date to such-n-so date, when we corrected the bug. Here&rsquo;s a bit of technical background on what happened&hellip;</em></p>
+<p><em>C-suite: So what actions are being taken to prevent this from recurring in the future?</em></p>
+<p><em>Me: Nothing. Here&rsquo;s why&hellip;</em></p>
+<p>So why no changes?</p>
+<p>From the postmortem, we&rsquo;d released a software change where customers hadn&rsquo;t been billed, resulting in a five-figure loss. There was no viable way of recouping those losses<sup id="fnref:recoup"><a class="footnote-ref" href="#fn:recoup">2</a></sup>. And conveniently, customers don&rsquo;t get upset with not being charged, so this was probably the most straight-forward cost calculation I&rsquo;ve encountered.</p>
+<p>As is often the case, there was a complex history behind this bug &ndash; prior decisions stacking on top of one another that contributed. I&rsquo;d made my own contributions as team lead, such as incorrectly assuming what was common knowledge and focusing on more delegation. And there were other factors as well.</p>
+<p>The greater context of the bug was that company wanted a particular feature to market as soon as possible. And by cutting some corners, we&rsquo;d successfully gotten the feature to market at least a month, possibly two months, earlier than expected. And each month earlier was worth about what the bug cost to the company. So it&rsquo;s pretty easy to put together a chart summarizing possible outcomes:</p>
+<table>
+<thead>
+<tr>
+<th>Time to market</th>
+<th>Shipped bug</th>
+<th>Net outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-2 months</td>
+<td>No</td>
+<td>2x profit</td>
+</tr>
+<tr>
+<td>-2 months</td>
+<td>Yes</td>
+<td>1x profit</td>
+</tr>
+<tr>
+<td>-1 months</td>
+<td>No</td>
+<td>1x profit</td>
+</tr>
+<tr>
+<td>-1 months</td>
+<td>Yes</td>
+<td>No profit</td>
+</tr>
+<tr>
+<td>0 months</td>
+<td>No</td>
+<td>No profit</td>
+</tr>
+<tr>
+<td>0 months</td>
+<td>Yes</td>
+<td>1x loss</td>
+</tr>
+</tbody>
+</table>
+<p>So if we&rsquo;d taken another week to ship the feature, that week needed to generate at least a 25% reduction in the chance the bug would ship in order to pay for itself. If we&rsquo;d taken another 2 weeks to ship, those two weeks needed to generate at least a 50% chance to not ship the bug. And so on.</p>
+<p>Now clearly in hindsight, knowing exactly what to look for and why the bug was missed, the bug could have been easily caught. But in foresight, I think it&rsquo;s pretty likely we could have taken a couple more months to ship and still missed the bug.</p>
+<p>And given that scenario, the most profitable decision was to ship the feature as soon as possible. Normally, there are other considerations, such as whether the bug was likely to repeat and how to avoid it in the future. However, given the particulars of the bug, it wasn&rsquo;t likely to recur.</p>
+<p>Admittedly, this situation was atypical. But it highlights a really important question for a blame-free retrospective: Was this bug worth paying the price to prevent?</p>
+<blockquote>
+<p>Was this bug worth paying the price to prevent?</p>
+</blockquote>
+<h1 id="so-what">So what</h1>
+<p>First, <a href="https://about.gitlab.com/blog/2017/02/10/postmortem-of-database-outage-of-january-31/">some scenarios</a> are so bad for the company that the risk needs to be basically zero. For comparison, there&rsquo;s an <a href="https://www.osti.gov/servlets/purl/1426902">interesting article</a> about nuclear weapon tolerances and the complexity of calculating the actual risk. Most of us don&rsquo;t handle nuclear weapons, but certain failure modes &ndash; e.g., data leaks, data loss, prolonged outages &ndash; may be just as catastrophic for a company. If so, I suggest it&rsquo;s worth architecting the necessary protections, redundancies, and verifications deeply into the systems. That way, instead of being an afterthought vulnerable to being lost in the quest for speed, those checks are a &ldquo;given&rdquo; for the company<sup id="fnref:givens"><a class="footnote-ref" href="#fn:givens">3</a></sup>.</p>
+<p>Secondly, the overall postmortem process shouldn&rsquo;t just be about the team&rsquo;s choices, but the context into which the team was placed.</p>
+<p>Finally, despite my reflections about a broader context, a blame-free mindset shared across the company is still essential to effectively evaluating what happened and what could go better next time.</p>
+<p>What else should have been my lessons learned?</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:complex">
+<p>Ideas like the <a href="https://www.sixsigmadaily.com/what-is-an-andon-cord/">Andon cord</a> suggest a similar idea is more broadly true, but speaking about best practices for postmortems at a cracker factory or in a political campaign is a bit beyond my expertise.&#160;<a class="footnote-backref" href="#fnref:complex" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:recoup">
+<p>Basically, losses couldn&rsquo;t be readily recouped because charging the customers retroactively would have led to bad publicity and far more customer service calls. It was better to eat the loss than to compound the problem.&#160;<a class="footnote-backref" href="#fnref:recoup" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:givens">
+<p>This is, of course, very hard to do. Many companies don&rsquo;t have an actual understanding of how much risk they are prepared to tolerate, and that tolerance can rapidly shift based on market conditions or personnel changes. I&rsquo;ve found <a href="https://www.amazon.com/How-Measure-Anything-Cybersecurity-Risk/dp/1119085292"><em>How to Measure Anything in Cybersecurity Risk</em></a> a fantastic study on how to normalize the conversation.&#160;<a class="footnote-backref" href="#fnref:givens" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+             
+ 
+            
+                <hr />
+    <div class="author-blurb">
+        <a href="/pages/about.html" target="_blank" rel="nofollow noopener noreferrer">
+            <img src=https://www.gravatar.com/avatar/1ada374ef69844ee2b619c4921891d53?s=512&d=identicon alt="Alan Ray Avatar" title="Alan Ray">
+            <span class="author-name">Alan Ray</span>
+        </a>
+        The Art and Science of Software Development
+    </div>
+
+            
+
+
+
+
+
+
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="https://rayalan.github.io/silent-failures.html" title="Previous: A Tool -- Or a Puzzle? - Cryptic failures">A Tool -- Or a Puzzle? <small class="subtitle">Cryptic failures</small></a></li>
+                <li class="next-article"><a href="https://rayalan.github.io/one-feature-many-ways-blueprint-study.html" title="Next: One idea, many interpretations - A case study">One idea, many interpretations <small class="subtitle">A case study</small></a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2023-11-07T00:00:00-05:00">Tue 07 November 2023</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://rayalan.github.io/categories.html#practices-and-principles-ref">practices and principles</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://rayalan.github.io/tags.html#knowledge-ref">knowledge
+                    <span class="superscript">9</span>
+</a></li>
+                <li><a href="https://rayalan.github.io/tags.html#uncertainty-ref">uncertainty
+                    <span class="superscript">10</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/alan-ray-3513aa14/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://rayalan.github.io/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

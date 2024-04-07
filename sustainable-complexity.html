@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://rayalan.github.io/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://rayalan.github.io/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="Alan Ray" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="uncertainty, architecture, practices and principles, " />
+
+<meta property="og:title" content="Sustainable Complexity  - Juggling tradeoffs "/>
+<meta property="og:url" content="https://rayalan.github.io/sustainable-complexity.html" />
+<meta property="og:description" content="Just use 0.0.0.0. Hypothetical pragmatic engineer, on the fastest solution. Suppose you and a friend are doing a small startup, coding away on a prototype. It’s late at night at the local coffee shop. Your co-founder – Janet – wants to see your prototype feature page so she …" />
+<meta property="og:site_name" content="Binary Adages" />
+<meta property="og:article:author" content="Alan Ray" />
+<meta property="og:article:published_time" content="2023-10-16T00:00:00-04:00" />
+<meta name="twitter:title" content="Sustainable Complexity  - Juggling tradeoffs ">
+<meta name="twitter:description" content="Just use 0.0.0.0. Hypothetical pragmatic engineer, on the fastest solution. Suppose you and a friend are doing a small startup, coding away on a prototype. It’s late at night at the local coffee shop. Your co-founder – Janet – wants to see your prototype feature page so she …">
+
+        <title>Sustainable Complexity  - Juggling tradeoffs  · Binary Adages
+</title>
+        <link href="https://rayalan.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Binary Adages - Full Atom Feed" />
+
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://rayalan.github.io/"><span class=site-name>Binary Adages</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://rayalan.github.io
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://rayalan.github.io/pages/about.html">About</a></li>
+                                <li ><a href="https://rayalan.github.io/categories.html">Categories</a></li>
+                                <li ><a href="https://rayalan.github.io/tags.html">Tags</a></li>
+                                <li ><a href="https://rayalan.github.io/archives.html">Archives</a></li>
+                                <!-- li><form class="navbar-search" action="https://rayalan.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="https://rayalan.github.io/sustainable-complexity.html">
+                Sustainable Complexity
+                <small class="subtitle">
+                    Juggling tradeoffs
+                </small>
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <blockquote>
+<p>Just use 0.0.0.0.</p>
+<p><em>Hypothetical pragmatic engineer, on the fastest solution.</em></p>
+</blockquote>
+<p>Suppose you and a friend are doing a small startup, coding away on a prototype. It&rsquo;s late at night at the local coffee shop. Your co-founder &ndash; Janet &ndash; wants to see your prototype feature page so she can grab some screenshots for some fundraising efforts. What&rsquo;s the fastest way to share so you can get back to coding?</p>
+<p><em>Why, host the website on 0.0.0.0 and point Janet at your public IP address, of course.</em></p>
+<p>(My apologies for the heart attack I probably just gave to any security-minded folks<sup id="fnref:security"><a class="footnote-ref" href="#fn:security">1</a></sup>.)</p>
+<p>And that&rsquo;s how quickly one moves into the complexity of juggling speed vs. sustainability. It might be reasonable to argue that any particular custom website publicly open for a few minutes at any particular coffee shop isn&rsquo;t a particularly high risk. Then again, what&rsquo;s the plan if a ransomware attack finds an opening and encrypts the disk? How much does the startup have backed up?</p>
+<p>The problem, of course, is that this decision likely isn&rsquo;t just for a few minutes now. It&rsquo;s likely to become a habit. <code>0.0.0.0</code> gets added to a configuration script somewhere and forgotten about. The startup is successful, adds in a few more employees. The startup gets a VPN. Everybody&rsquo;s busy, nobody thinks about why it is so easy to see one another&rsquo;s work. And then one day, someone makes some other misconfiguration. Or perhaps a vulnerability in the underlying web application framework is discovered. Maybe the surface area of the attack hasn&rsquo;t quite reached critical mass. Maybe it will take one more step &ndash; maybe someone puts a version of the prototype on the web for an important customer to try out &ndash; before all individual vulnerabilities tie together to create a exploitable hole. But the risk is accumulating.</p>
+<h1 id="tradeoffs">Tradeoffs</h1>
+<p>Security isn&rsquo;t the only non-functional requirement that has this trade-off. Here are a few more:</p>
+<ul>
+<li>
+<p><em>Maintainability</em>: As long as there&rsquo;s no employee turnover, the team can move faster by not writing down institutional knowledge. And much of the documentation becomes outdated almost as soon as the commit is merged.</p>
+</li>
+<li>
+<p><em>Testability</em>: How much of the code needs to be tested? How much do the expectations of third-party libraries need to be tested? On an Agile, fast-moving team, how much of that code will actually last long enough for tests to matter? Will the right things even be tested?</p>
+</li>
+<li>
+<p><em>Permanence</em>: How long is the solution intended to last anyway? Maybe the whole goal is to prove to investors that this idea has legs. In that case, vendor lock-in really doesn&rsquo;t matter. But if the idea really does have legs, will the company have the discipline to go back and create a longer-term solution? When the company is worth millions, will anyone even remember those vendor-specific dependencies or the risk they pose to the company?<sup id="fnref:graveyard"><a class="footnote-ref" href="#fn:graveyard">2</a></sup></p>
+</li>
+</ul>
+<h1 id="architecture">Architecture</h1>
+<p>Even architecture itself is one of these non-functional requirements with trade-offs. Consider how the classic spaghetti monolith comes to be. At first, it&rsquo;s easy to build:</p>
+<div class="mermaid">
+
+flowchart TD
+
+subgraph System
+  e[Everything goes here]
+end
+</div>
+
+<p>But over time, that approach starts getting more and more complex until we&rsquo;re well on our way to classic <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a> where everything is highly interconnected and it&rsquo;s hard to modify or add pieces without understanding all the other pieces.</p>
+<div class="mermaid">
+
+flowchart TD
+
+subgraph System
+  a[The first features]
+  b[An initial UI layer]
+  c[A second UI for bulk uploads]
+  d[Scripts for backing up and restoring]
+  e[Data processing for a new vendor]
+  f[Data processing for another incompatible vendor]
+end
+
+a --> b
+b --> c
+b --> e
+b --> f
+d --> a
+d --> e
+f --> e
+f --> d
+e --> d
+</div>
+
+<p>And now every time anyone changes anything, there are side effects. The whole system might come down just because some developer updated the way the system interacts with the proprietary system and that has an unexpected side effect on another data system, which cascades into a rendering layer that wasn&rsquo;t properly isolated.</p>
+<p>Hrm, that&rsquo;s not looking so promising. What if we start off with a different architecture? Maybe using light-weight lambdas? Maybe we get a first pass of a system like this:</p>
+<div class="mermaid">
+
+flowchart TD
+
+subgraph APIs
+  a[Route 1]
+  b[Route 2]
+  c[Route 3]
+  d[Route 4]
+end
+
+subgraph Data storage
+  mq>Message queue]
+  db[(Data storage)]
+end
+
+subgraph Backend processing
+  ba[Backend function 1]
+  bb[Backend function 2]
+  bc[Backend function 3]
+end
+
+a -->|publish| mq
+b -->|publish| mq
+c -->|publish| mq
+d -->|publish| mq
+a <--> db
+b <--> db
+c <--> db
+d <--> db
+
+mq -->|via subscription| ba
+mq -->|via subscription| bb
+mq -->|via subscription| bc
+ba <--> db
+bb <--> db
+bc <--> db
+</div>
+
+<p>So this looks pretty manageable at first. Maybe a bit more complex, but not bad. At least there are clearly defined interface layers.</p>
+<p>But how is this approach going to scale? If this is the first feature, what&rsquo;s it going to look like after a second feature? A third? A tenth? Even this pretty simple mockup with a few APIs, a few back-end behaviors, a database, and a message queue for coordinating is starting to look like <a href="https://medium.com/codex/managing-serverless-spaghetti-c2fb1a7db73e">serverless spaghetti</a>. Sure, each piece can be modified, built, tested, and deployed individually. But because it is their orchestrated unified behavior that matters, a change to any part can disrupt the whole. Moving the interconnection from within a giant monolith to being distributed across a serverless architecture hasn&rsquo;t actually solved the problem; it&rsquo;s just transformed where the complexity lies.</p>
+<h1 id="so-what">So what</h1>
+<p>I don&rsquo;t believe there are any easy answers. There&rsquo;s no up-front architecture that matches every step in an application&rsquo;s life journey, from prototype to first release to massive hit to sunset. Nor is ChatGPT going to introduce a &ldquo;refactor architecture&rdquo; button anytime soon.</p>
+<p>But I do believe there are a few guiding principles. Here are two:</p>
+<h2 id="budgeting-for-changing-non-functional-requirements">Budgeting for changing non-functional requirements</h2>
+<p>Business leadership needs to understand and budget for changing non-functional requirements. Architectural choices should be tightly calibrated against the business objectives. If the company wants a prototype for internal purposes, it may not need any formal architecture. But when it becomes a paid service that needs 24-7 reliability, that prototype architecture won&rsquo;t work any more.</p>
+<p>Business leadership also need to understand that, by and large, the cost is an unknown. When the decision is made to build for aesthetics and not worry about load time, the non-functional requirement becomes &ldquo;load time doesn&rsquo;t really matter as long as nobody complains.&rdquo; After a year of developing, what will it take to achieve highly responsive load times of sub-200 milliseconds? Is it just a matter of optimizing a few routes? Or perhaps adding a cache? Or will the whole data pipeline need to be redesigned? Perhaps the choice of a single-page application is too slow for this problem, and a new approach is needed?</p>
+<p>This understanding isn&rsquo;t easy; business leadership often focuses on tangibles like features, monthly active users, and revenue. But it&rsquo;s essential for them to understand that every non-functional requirement adds complexity, and changing the non-functional requirements typically adds a cost that must be paid.<sup id="fnref:debt"><a class="footnote-ref" href="#fn:debt">3</a></sup></p>
+<h2 id="architect-for-no-red-tape">Architect for no red tape</h2>
+<p>One of the great strengths of well-functioning Agile is that it gives teams the power to execute. Handoffs between humans are inherently slow, and eliminating them is one of the best ways to make everything move faster.</p>
+<p>The problem is that modern software engineering has a lot of domain-specific knowledge. How many software engineers are top-notch security engineers? Kubernetes specialists? With Helm and Terraform knowledge? What about the CI/CD system? Internationalization? And fluent in diagnostics through OpenTelemetry and the ELK stack?</p>
+<p>And this specialization means some sort of coordination is required. I&rsquo;m a huge fan of <a href="https://teamtopologies.com/key-concepts">Team Topologies</a> which reverse engineers <a href="https://en.wikipedia.org/wiki/Conway%27s_law">Conway&rsquo;s Law</a>. That is, instead of how a company works being decided by its org chart, the org chart is decided by how the company should work.</p>
+<p>And this is where architecture comes in. What specializations need to exist within the company? And how will they interact with each team in a way that lets the team quickly deliver changes while still making use of their specialized knowledge?</p>
+<p>One particular idea comes to mind here: I&rsquo;m a huge fan of &ldquo;bottleneck&rdquo; points in architecture that are hard to change, but provide certain guarantees. For example, <a href="https://docs.nginx.com/nginx-management-suite/nim/previous-versions/v1/getting-started/auth/#jwt-auth">teach nginx to use JWT authentication</a> and then require nginx as an intermediary before each application. Now there&rsquo;s a guarantee for each application that all calls have validated JWT tokens. This isn&rsquo;t the only guarantee needed to operate securely<sup id="fnref:only"><a class="footnote-ref" href="#fn:only">4</a></sup>, but a few such bottlenecks can go a long way to simplify the day-to-day cognitive load of development while also providing a robust non-functional requirement &ndash; in this case, around security authentication.</p>
+<p>How else can engineers juggle the complexities of non-functional requirements in a sustainable manner?</p>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:security">
+<p>For those who don&rsquo;t know, the 0.0.0.0 mask makes the site accessible to anyone who can reach the computer. A small startup operating out of a coffee shop likely doesn&rsquo;t have a VPN or other airgap, making the website &ndash; and any associated vulnerabilities &ndash; accessible to anyone on the coffee shop&rsquo;s network &ndash; or anyone who has compromised the network.&#160;<a class="footnote-backref" href="#fnref:security" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:graveyard">
+<p>The <a href="https://killedbygoogle.com/">Google Graveyard</a> is infamous, but I&rsquo;m surprised how many other popular libraries and tools don&rsquo;t make it. They get supplanted, abandoned, or acquired. Perhaps someone decides the current open source model isn&rsquo;t profitable. Or maybe someone just decides to take their marbles and go home.&#160;<a class="footnote-backref" href="#fnref:graveyard" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:debt">
+<p>Sometimes this cost is paid in technical debt, which typically manifests with slower teams over time making more mistakes.&#160;<a class="footnote-backref" href="#fnref:debt" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:only">
+<p>Solving authentication, for example, doesn&rsquo;t guarantee authorization to see particular data or take a particular action.&#160;<a class="footnote-backref" href="#fnref:only" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+             
+ 
+            
+                <hr />
+    <div class="author-blurb">
+        <a href="/pages/about.html" target="_blank" rel="nofollow noopener noreferrer">
+            <img src=https://www.gravatar.com/avatar/1ada374ef69844ee2b619c4921891d53?s=512&d=identicon alt="Alan Ray Avatar" title="Alan Ray">
+            <span class="author-name">Alan Ray</span>
+        </a>
+        The Art and Science of Software Development
+    </div>
+
+            
+
+
+
+
+
+
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="https://rayalan.github.io/the-three-questions.html" title="Previous: The Three Questions - Thinking Well">The Three Questions <small class="subtitle">Thinking Well</small></a></li>
+                <li class="next-article"><a href="https://rayalan.github.io/vocabulary.html" title="Next: Vocabulary - A rose by any other name">Vocabulary <small class="subtitle">A rose by any other name</small></a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2023-10-16T00:00:00-04:00">Mon 16 October 2023</time>
+            <h4>Category</h4>
+            <a class="category-link" href="https://rayalan.github.io/categories.html#practices-and-principles-ref">practices and principles</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://rayalan.github.io/tags.html#architecture-ref">architecture
+                    <span class="superscript">2</span>
+</a></li>
+                <li><a href="https://rayalan.github.io/tags.html#uncertainty-ref">uncertainty
+                    <span class="superscript">10</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+<div id="sidebar-social-link">
+    <a href="https://www.linkedin.com/in/alan-ray-3513aa14/" title="" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn" role="img" viewBox="0 0 512 512" fill="#fff"><rect width="512" height="512" rx="15%" fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://rayalan.github.io/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>
