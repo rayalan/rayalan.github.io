@@ -1,5 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Binary Adages - software design</title><link href="https://rayalan.github.io/" rel="alternate"></link><link href="https://rayalan.github.io/feeds/software-design.atom.xml" rel="self"></link><id>https://rayalan.github.io/</id><updated>2024-04-29T00:00:00-04:00</updated><entry><title>SOLID vs. WARMED</title><link href="https://rayalan.github.io/solid-vs-warmed.html" rel="alternate"></link><published>2024-04-29T00:00:00-04:00</published><updated>2024-04-29T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2024-04-29:/solid-vs-warmed.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Binary Adages - software design</title><link href="https://rayalan.github.io/" rel="alternate"></link><link href="https://rayalan.github.io/feeds/software-design.atom.xml" rel="self"></link><id>https://rayalan.github.io/</id><updated>2024-07-01T00:00:00-04:00</updated><entry><title>Card Estimation: Pointless Process?</title><link href="https://rayalan.github.io/performance-agile-estimation.html" rel="alternate"></link><published>2024-07-01T00:00:00-04:00</published><updated>2024-07-01T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2024-07-01:/performance-agile-estimation.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Proposed: At least 74% of Agile estimation is a waste of time and energy.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://agilemanifesto.org/"&gt;Agile&lt;/a&gt; is supposed to be a new set of values, valuing individuals and interactions over processes and tools &amp;ndash; among other things.&lt;/p&gt;
+&lt;p&gt;Yet when it comes to estimation, there seems to be a fascination with the process …&lt;/p&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Proposed: At least 74% of Agile estimation is a waste of time and energy.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://agilemanifesto.org/"&gt;Agile&lt;/a&gt; is supposed to be a new set of values, valuing individuals and interactions over processes and tools &amp;ndash; among other things.&lt;/p&gt;
+&lt;p&gt;Yet when it comes to estimation, there seems to be a fascination with the process, regardless of the results. On paper, the Agile estimation process seems quite reasonable:&lt;/p&gt;
+&lt;div class="mermaid"&gt;
+
+---
+title: Agile Estimation Cycle
+---
+flowchart LR
+
+  est[Estimate task size based on similar prior tasks]
+  do[Do the work]
+  calibrate[Improve estimation abilities based on actual outcomes]
+
+  est --&gt; do --&gt; calibrate --&gt; est
+&lt;/div&gt;
+
+&lt;p&gt;The idea is that the team will be doing similar tasks for a long enough period that it&amp;rsquo;s possible to chart the team&amp;rsquo;s velocity and make reasonable approximations about when a project will finish.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s even a clever observation that humans are much better at comparison (an elephant is bigger than a tiger; a tiger is about the same size as a lion) than they are at precise estimates. So rather than estimating in time, Agile estimates in story points or T-shirt sizes or something similar. There&amp;rsquo;s even the helpful observation that we don&amp;rsquo;t need fine grained resolution &amp;ndash; does it really matter if a card is 10 or 11 points? &amp;ndash; and so many approaches use a variant of the Fibonacci sequence to reduce cognitive load.&lt;/p&gt;
+&lt;p&gt;What could go wrong?&lt;/p&gt;
+&lt;h1 id="the-problems"&gt;The problems&lt;/h1&gt;
+&lt;p&gt;The first set of problems revolve around the assumptions being made:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The team will be doing similar tasks for a long enough period.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Many teams I know are often doing rather different tasks each sprint. The first time implementing redis. The first time implementing the new date/time picker. The first time implementing redis now that the new authentication protocols are in place. The second time implementing the new date/time picker, but Jane who did it last time is out on vacation and the design calls for a new serif font that&amp;rsquo;s never been used.&lt;/p&gt;
+&lt;p&gt;In short, there aren&amp;rsquo;t enough similarities between tasks to build up a familiar set of reference tickets. It&amp;rsquo;s like playing Pictionary with a new group of people each time &amp;ndash; there&amp;rsquo;s no convention or groupthink to take advantage of.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Creating and maintaining the tickets has low overhead.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In order to get the benefit of estimating when a project will end, one needs most of the work to exist as tickets &amp;ndash; and the tickets need to be small enough to be estimated. This is a significant amount of work, almost waterfall-like. All too often, new product requirements, implementation realities, or new organizational objectives end up shifting the necessary work. The result is either another massive effort to redefine all the work, or an obsolete project estimate. This problem gets worse the further ahead one is trying to estimate, as the more work that needs to be carefully defined, the more time is spent writing and rewriting tickets.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The team will spend the time to properly estimate.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Team estimation is a time-consuming task. Some of this is healthy, because it reveals differing assumptions about the work. But especially on a team with lots of unfamiliar tasks, hours can be spent coming to a consensus on estimates.&lt;/p&gt;
+&lt;p&gt;Teams aren&amp;rsquo;t stupid; that&amp;rsquo;s an incredible amount of time that most people don&amp;rsquo;t enjoy&amp;hellip;and so the process starts getting short-circuited. Individuals are asked to start estimating cards. That creates the estimates, but means there&amp;rsquo;s even less of a team-wide sense of what any particular number means.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Companies often have competing rhythms.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;While Agile promotes the idea of doing the most important work now, many companies have non-Agile rhythms that guide larger planning. Annual budgets. Quarterly OKRs. Six week &lt;a href="https://www.productplan.com/glossary/shape-up-method/"&gt;Shape Up projects&lt;/a&gt;. Often the scope of the project is largely driven by the available time and available personnel. Thus the question becomes &amp;ldquo;What can these 2 people get done before the feature launch in ten weeks?&amp;rdquo; far more than &amp;ldquo;How can we accurately estimate the work that product wants to achieve?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Teams will spend the time to calibrate (improve) their estimation, based on actual results.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The idea is that, while a team may not be very good at estimating at first, by looking at how close their estimations were to reality (was this ticket really about the same size as this other one), teams can rapidly improve the accuracy of their estimation.&lt;/p&gt;
+&lt;p&gt;This might be true; I&amp;rsquo;ve never heard of a team that actually had the discipline to calibrate their estimations, though.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Teams actually understand the majority of the work.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Preplanned tickets can be pretty good about what it takes to initially ship the feature. They&amp;rsquo;re often very bad, though, at determining what needs to happen for the feature to be a success:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users aren&amp;rsquo;t discovering the feature because it isn&amp;rsquo;t listed on the user page, which is owned by another squad.&lt;/li&gt;
+&lt;li&gt;Users are generating several times more data than expected, and the database strategy can&amp;rsquo;t handle the reads and writes.&lt;/li&gt;
+&lt;li&gt;Meanwhile, the third-party geolocation service often has high latency under load, so either a rework or a new provider is a necessity for continued growth.&lt;/li&gt;
+&lt;li&gt;User experience discovers a large uptick in complaints because the feature&amp;rsquo;s biggest fans are enterprise customers, not the small companies the workflow was designed for.&lt;/li&gt;
+&lt;li&gt;This unexpected customer reaction has Product rethinking their approach.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;The team capabilities are more or less interchangable.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In my career, I&amp;rsquo;ve discovered that tasks are rarely interchangable. There&amp;rsquo;s the one person who knows the legacy backend really well. The other developer who understands the intricacies of TypeScript. The one person who just rewrote the DateTime picker to be more usable, but nobody else understands the new pattern. And so on. As a result, there&amp;rsquo;s really two velocities: The velocity when everyone is in their comfort zone, and the velocity that would occur if cards were being grabbed more or less at random.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The team will be more or less stable&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Many companies are moving at fast paces. People join the team; people leave the team. At times, reorganization, leadership changes, and changing responsibilities are more the norm than the exception. Each organizational change causes the estimation process to get more uncertain.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Recap&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So far, I&amp;rsquo;ve looked at the process flaws that undermine most of the Agile estimation I&amp;rsquo;m aware of. Even if people are going through the motions, the way that it is done isn&amp;rsquo;t rigorous enough to achieve the intended result &amp;ndash; semi-reliable estimates for when software will be done.&lt;/p&gt;
+&lt;h1 id="the-value-problem"&gt;The value problem&lt;/h1&gt;
+&lt;p&gt;Worse yet, I can&amp;rsquo;t think of a story of when an Agile-derived estimate mattered. When was the last time I saw any leader look at the team&amp;rsquo;s velocity, look at the project story points, and say &amp;ldquo;Well, that&amp;rsquo;s about 100 points to finish; the team does about 20 points a cycle, so that&amp;rsquo;s about 5 cycles out &amp;ndash; say, 3 or 4 months?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;On my first big project, I ran a very light-weight estimation process (no calibration, of course) and carefully tracked team velocity for about a year. I had a fantastic idea of how many story points happened each week. And it was completely irrelevant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I never used the data to estimate.&lt;/li&gt;
+&lt;li&gt;No leader ever asked about my estimation methodology.&lt;/li&gt;
+&lt;li&gt;Timelines changed based on changing requirements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, because the project did a good job of avoiding late-stage blow-ups and validated big unknowns upfront, timeline changes were relatively small and accepted as the uncertainties of software development. And in no scenario would more attention to estimation have done any good. If I were doing that project over again, I would have completely scrapped even the light-weight estimation that I did.&lt;/p&gt;
+&lt;h1 id="the-process-problem"&gt;The process problem&lt;/h1&gt;
+&lt;p&gt;In a world that valued individuals and interactions over processes, one might expect that time-consuming and error-prone processes would be quickly slashed. Particularly if it wasn&amp;rsquo;t generating useful outcomes for anybody. After all, a valueless time sink is terrible ROI. If nothing else, give employees a bit of extra PTO each week and earn some goodwill. The ROI is still terrible, but at least it is positive.&lt;/p&gt;
+&lt;p&gt;However, my observation has been that estimation has a habit of being sticky. People may not actually do it, particularly not the way that Agile suggests, but they are loath to abandon it.&lt;/p&gt;
+&lt;p&gt;I have a few ideas for why:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Doing the standard thing rarely creates waves. All&lt;sup id="fnref:all"&gt;&lt;a class="footnote-ref" href="#fn:all"&gt;1&lt;/a&gt;&lt;/sup&gt; the books say estimation is the way to go.&lt;/li&gt;
+&lt;li&gt;It gives the illusion of impact. One can report &amp;ldquo;Yes, we&amp;rsquo;ve got 20 points of work scheduled for this sprint,&amp;rdquo; and it feels like something meaningful is being said.&lt;/li&gt;
+&lt;li&gt;People have the intuition that some sort of estimation is important, and Agile estimation is the standard procedure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But most importantly, many forms of Agile estimation are formulaic and thoughtless: something that can regularly happen in a rote fashion without much thought or consideration. And since the outcome doesn&amp;rsquo;t really matter and people have the intuition that estimation matters, the estimation is seen as a productive signal.&lt;/p&gt;
+&lt;p&gt;In short, it becomes performative to &amp;ldquo;signal&amp;rdquo; that important work is happening, without consideration for whether the process is actually worthwhile.&lt;/p&gt;
+&lt;h1 id="so-what"&gt;So what&lt;/h1&gt;
+&lt;p&gt;Is my assessment of Agile estimation too harsh? On paper, the theory seems sound enough. I&amp;rsquo;m sure there are companies that are effectively leveraging it. But I&amp;rsquo;m gradually coming to the conclusion that much of the Agile estimation I&amp;rsquo;ve encountered is actually anti-Agile.&lt;/p&gt;
+&lt;p&gt;What do you think? Is Agile estimation typically more useful than I suggest? When have you seen it be an effective use of the team&amp;rsquo;s time?&lt;/p&gt;
+&lt;script src="https://unpkg.com/mermaid/dist/mermaid.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:all"&gt;
+&lt;p&gt;Well, at least many. I&amp;rsquo;ve seen some pushback in various places.&amp;#160;&lt;a class="footnote-backref" href="#fnref:all" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="software design"></category><category term="user experience"></category><category term="process"></category><category term="incentives"></category></entry><entry><title>Tier I Customer Support - Why Improve?</title><link href="https://rayalan.github.io/discoverability-user-experience.html" rel="alternate"></link><published>2024-06-10T00:00:00-04:00</published><updated>2024-06-10T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2024-06-10:/discoverability-user-experience.html</id><summary type="html">&lt;p&gt;The other day I reached out to a top-tier monitoring platform with a &amp;ldquo;peculiarity&amp;rdquo; about how one of their widgets performed. In a fairly standard scenario, a particular widget behavior linked to the wrong dashboard &amp;ndash; yet everything about their documentation and dashboard interfaces suggested I was using the product in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The other day I reached out to a top-tier monitoring platform with a &amp;ldquo;peculiarity&amp;rdquo; about how one of their widgets performed. In a fairly standard scenario, a particular widget behavior linked to the wrong dashboard &amp;ndash; yet everything about their documentation and dashboard interfaces suggested I was using the product in the expected way.&lt;/p&gt;
+&lt;p&gt;For those not familiar with the industry, the first layer of customer service at such companies tends to be &lt;a href="https://en.wikipedia.org/wiki/User_error"&gt;ID-10T check&lt;/a&gt;: Is the power on? Did you read the documentation? Did you read all the documentation? Do you understand how the product is supposed to work?&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not unsympathetic; I&amp;rsquo;ve asked and received my own fair share of questions where the problem was user error and a basic Google search would have turned up the answer. My solution to having an extended back-and-forth exchange with tier I support is to carefully write my questions with reproducible cases, expected behaviors, actual behaviors, and applicable documentation. Basically, a classic bug report, except instead of saying &amp;ldquo;This is a bug,&amp;rdquo; I center the question around &amp;ldquo;How do I achieve the result I want?&amp;rdquo; Usually this bypasses most of the prepared prompts and demonstrates sufficient knowledge of the product that my question gets immediately bumped to the system experts.&lt;/p&gt;
+&lt;p&gt;So I did that here. I carefully linked to the widget in question. I showed the two different scenarios, one which worked as expected and the other of which completely didn&amp;rsquo;t work. And I linked to the documentation and the UI, neither of which suggested the observed behavior was anything remotely like what I should expect.&lt;/p&gt;
+&lt;p&gt;And I got a reply describing an answer to a problem involving 404s (something I completely had not mentioned) and pointing me at some irrelevant documentation. In short, tier I either didn&amp;rsquo;t read my question at all, or sent me back the standard response from some randomly selected keywords.&lt;/p&gt;
+&lt;p&gt;Ugh.&lt;/p&gt;
+&lt;p&gt;For the reader&amp;rsquo;s amusement, when the system experts got back with me, they agreed that the behavior was undocumented, dysfunctional, and best of all, already known by them. Someday, improvements might be a priority on their roadmap.&lt;/p&gt;
+&lt;h1 id="can-we-do-better"&gt;Can we do better?&lt;/h1&gt;
+&lt;p&gt;Clearly, this experience wasn&amp;rsquo;t the best. It isn&amp;rsquo;t the experience I want as a customer when I have a real question. And I don&amp;rsquo;t believe the typical service provider wants to answer legitimate questions with friction or misinformation.&lt;/p&gt;
+&lt;p&gt;So how could we do better? If, at least on paper, both the customer and the provider would like a different experience, could we make one that works?&lt;/p&gt;
+&lt;p&gt;One answer would be contracts with a clause like &amp;ldquo;If you ask us a question that is answered in documentation, you&amp;rsquo;ll pay $500. For every documentation hole or legitimate bug you find, we&amp;rsquo;ll credit you $500.&amp;rdquo; That could work, but is likely to lead to a lot of wrangling over whether something is a documentation gap or a legitimate bug. That&amp;rsquo;s probably not the synergistic back-and-forth collaboration that either party wants.&lt;/p&gt;
+&lt;h1 id="discoverability"&gt;Discoverability&lt;/h1&gt;
+&lt;p&gt;The issue, I believe, is discoverability. If it is easier and faster for me to ask an expert a question than to find the answer myself, I&amp;rsquo;m likely to ask the expert. This reality suggests two approaches:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make it harder and more painful to ask experts a question.&lt;/li&gt;
+&lt;li&gt;Make it far faster and easier to discover the answer in the service or documentation than to ask an expert.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="a-game-plan"&gt;A game plan&lt;/h1&gt;
+&lt;p&gt;Let&amp;rsquo;s pretend we&amp;rsquo;re running a provider and our ambition is to provide an amazing user experience through discoverability and highly responsive customer support. What&amp;rsquo;s our strategy?&lt;/p&gt;
+&lt;p&gt;Our goal is to scale our service without significantly scaling our customer support. That is, if we double the number of customers, we don&amp;rsquo;t want to increase our customer representative count.&lt;/p&gt;
+&lt;p&gt;This means that every common question needs to be ruthlessly turned into a discoverable fact:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If I&amp;rsquo;m in the system and want to know what a widget can do, I need to be able to easily discover that.&lt;/li&gt;
+&lt;li&gt;If I&amp;rsquo;m writing a project plan and want to know what a widget can do, I need to be able to easily discover that.&lt;/li&gt;
+&lt;li&gt;If I want to know the best way to achieve an outcome, I need to be able to discover that.&lt;/li&gt;
+&lt;li&gt;If I want to know if my question already has an answer, I need to be able to quickly discover that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To support this, we&amp;rsquo;ll want to hire customer service representatives from fields such as product design, user experience, and software development.&lt;/p&gt;
+&lt;p&gt;The key outcome of every customer question is not &amp;ldquo;How do we answer this question?&amp;rdquo; It is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How do we make the answer so discoverable that nobody ever asks this again?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id="the-concept"&gt;The concept&lt;/h1&gt;
+&lt;p&gt;So instead of having a traditional customer service department, we&amp;rsquo;ll integrate customer interactions with a group focused on product usability, from interested prospects to long-term users. With this scope, the group should have the ability to guide discoverability through product design, user interfaces, and documentation.&lt;/p&gt;
+&lt;p&gt;As one example, consider a company taking the &lt;a href="https://www.typescriptlang.org/play/"&gt;playground idea&lt;/a&gt; to the next level: every feature had links to a playground environment with realistic dummy data that demonstrated the capability.&lt;/p&gt;
+&lt;p&gt;Solving this space is still a hard problem. While fast rapid iterations works for many software solutions, there&amp;rsquo;s often weak integration between code and documentation, or between user interfaces and explanations of behaviors, or between products and the explanations. Many companies struggle with information architecture, organizing their documentation in ways that users do not quickly understand&lt;sup id="fnref:four"&gt;&lt;a class="footnote-ref" href="#fn:four"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h1 id="troublemakers"&gt;Troublemakers&lt;/h1&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve talked about the carrot approach: How can we make our software so delightful, so easy to understand, that our customers prefer self-discovery to asking questions.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Some people hate to read.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But there&amp;rsquo;s always a few people who prefer to ask the question and push work onto customer service rather than do their own research. Maybe they haven&amp;rsquo;t actually used the software to understand how discoverable it is. Maybe they don&amp;rsquo;t realize how much overhead there is to asking a question. Maybe they don&amp;rsquo;t understand our business model and how it relies on people not asking questions that are already answered.&lt;/p&gt;
+&lt;p&gt;As a first layer of defense, let&amp;rsquo;s make it standard practice to run a usability test with a customer that asks us a question. Tell them a bit about our ambition that users should be able to entirely discover the product without customer support, and then observe how they approach answering the question.&lt;/p&gt;
+&lt;p&gt;Since our customer support department is full of user experience specialists, we have the expertise for this. If we&amp;rsquo;ve done our product design right, this exercise will demonstrate to users how easy it is to find their own answers. And if we&amp;rsquo;ve missed some expectation, well, observing what the user is actually trying to do is a great way to fix our assumptions and let us iterate on an even more discoverable product.&lt;/p&gt;
+&lt;p&gt;Finally, add a clause to contracts that lets us not respond to questions from users who persist in asking questions that they could easily answer themselves.&lt;/p&gt;
+&lt;h1 id="so-what"&gt;So what&lt;/h1&gt;
+&lt;p&gt;Ironically, if a company succeeded at this approach&lt;sup id="fnref:stripe"&gt;&lt;a class="footnote-ref" href="#fn:stripe"&gt;2&lt;/a&gt;&lt;/sup&gt;, one of their most valuable products might be the framework, techniques, and tooling that supports highly discoverable software along with rapid iterative development. Yes, it might be opinionated and limited on which frameworks it worked with. But the ability to simultaneously develop software, manage beta features, offer demonstration/playground environments, and reduce customer support staffing &amp;ndash; that could be a killer product.&lt;/p&gt;
+&lt;p&gt;What do you think? Would your company be interested in such a product?&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:four"&gt;
+&lt;p&gt;I&amp;rsquo;ve found the &lt;a href="https://www.writethedocs.org/videos/eu/2017/the-four-kinds-of-documentation-and-why-you-need-to-understand-what-they-are-daniele-procida/"&gt;four kinds of documentation&lt;/a&gt; to be a fantastic idea, and I wish far more companies used that as guiding principle.&amp;#160;&lt;a class="footnote-backref" href="#fnref:four" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:stripe"&gt;
+&lt;p&gt;&lt;a href="https://stripe.com/"&gt;Stripe&lt;/a&gt; is the company that I&amp;rsquo;ve seen that comes closest to this. I&amp;rsquo;ve &lt;a href="https://rayalan.github.io/stripe-review.html"&gt;written before&lt;/a&gt; about how this kind of discoverability moved them from being an afterthought vendor to being the preferred vendor.&amp;#160;&lt;a class="footnote-backref" href="#fnref:stripe" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content><category term="software design"></category><category term="user experience"></category><category term="system design"></category><category term="incentives"></category></entry><entry><title>Modem Failure - Why Improve?</title><link href="https://rayalan.github.io/profitless-user-experience.html" rel="alternate"></link><published>2024-05-20T00:00:00-04:00</published><updated>2024-05-20T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2024-05-20:/profitless-user-experience.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Retry connection?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Two of my &amp;ldquo;favorite&amp;rdquo; words. My home internet connection was out. I checked the outage map; there were some vague lines suggesting something or another in my area might be out. A few hours later, the internet was back on.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Retry connection?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Well, it was back briefly. Now …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Retry connection?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Two of my &amp;ldquo;favorite&amp;rdquo; words. My home internet connection was out. I checked the outage map; there were some vague lines suggesting something or another in my area might be out. A few hours later, the internet was back on.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Retry connection?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Well, it was back briefly. Now it was out again. I went to bed. The next morning, the familiar words greeted me:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Retry connection?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Okay, now it&amp;rsquo;s getting serious. Time to dig in a bit. The outage map? It shows nothing.&lt;/p&gt;
+&lt;p&gt;Frustrating. I call my internet provider. After bouncing through the menus, I&amp;rsquo;m put on hold for an extended period. Finally, a representative answers me.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Is there a problem?&lt;/em&gt; The signal looks good, they say.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Okay, let me try rebooting my router.&lt;/em&gt; &lt;em&gt;No, don&amp;rsquo;t do that. It might cause problems.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s strange; I&amp;rsquo;ve never heard about rebooting the router being a problem in decades of tech service.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Could you tell me what time the outage ended?&lt;/em&gt; No, they&amp;rsquo;re unable to access the technician&amp;rsquo;s notes about the outage.&lt;/p&gt;
+&lt;p&gt;_Could you tell me if you see internet traffic from my modem? No. Could you please connect your laptop directly to the cable modem to see if that resolves the problem?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;How can I leave feedback about this experience?&lt;/em&gt; You might receive a feedback survey after this phone call.&lt;/p&gt;
+&lt;h1 id="reviewing-the-experience"&gt;Reviewing the experience&lt;/h1&gt;
+&lt;p&gt;The whole experience is a lesson in (bad) user experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The principle:&lt;/strong&gt; &lt;a href="https://www.nngroup.com/articles/visibility-system-status/"&gt;Visibility of System Status&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The reality:&lt;/strong&gt; There&amp;rsquo;s no visibility of system status. There was no way to independently validate anything the representative was telling me. In fact, at one point, I asked the representative for my modem ID just to confirm that the user wasn&amp;rsquo;t just reading rote answers from note cards.&lt;/p&gt;
+&lt;p&gt;Getting information was painful with long delays. What&amp;rsquo;s particularly ironic is that my provider has a monthly data cap. So some part of their system is absolutely aware of when and how many bytes I&amp;rsquo;m using.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The principle:&lt;/strong&gt; &lt;a href="https://www.nngroup.com/articles/ten-usability-heuristics/"&gt;Match between the system and the real world&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The reality:&lt;/strong&gt; Why can&amp;rsquo;t I access this information myself from my phone? Why do I even need to call my internet provider to find out if my cable modem has a signal connection to the world?&lt;/p&gt;
+&lt;p&gt;Are they really expecting the average customer to have a way to connect their laptop directly a cable modem to bypass a router? Yes, I can do it. I also work in the software industry, have far more computers than the average person, and years worth of random tech equipment I&amp;rsquo;ve collected for one reason or another. But it&amp;rsquo;s not like the latest MacBook Pro comes with a CAT-5 connection.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The principle:&lt;/strong&gt; &lt;a href="https://www.nngroup.com/articles/ten-usability-heuristics/"&gt;Help users recognize, diagnose, and recover from errors&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The reality:&lt;/strong&gt; Oh, yes, I did eventually resolve the problem &amp;ndash; by rebooting my router, the one action that the customer representative distinctly told me &lt;em&gt;not&lt;/em&gt; to take.&lt;/p&gt;
+&lt;h1 id="the-importance-problem"&gt;The importance problem&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m sure far more could be said about why what I went through was a terrible user experience &amp;ndash; even if the actual underlying problem was my own equipment not properly recovering in the aftermath of an outage.&lt;/p&gt;
+&lt;p&gt;But there&amp;rsquo;s a bigger problem: I don&amp;rsquo;t believe my provider cares to do better. From an inability to engage except via phone calls to a customer service representative who seemed to be reading from a canned script carefully crafted to apply to everybody while helping nobody, I felt small and minimized.&lt;/p&gt;
+&lt;p&gt;Nothing suggested that the company wants feedback or cares to do better. They appear fine with my wasting my own time to get misleading information with no way to give feedback.&lt;/p&gt;
+&lt;h1 id="the-incentive-problem"&gt;The incentive problem&lt;/h1&gt;
+&lt;p&gt;And this care-free attitude? It&amp;rsquo;s probably a good business decision.&lt;/p&gt;
+&lt;p&gt;My internet doesn&amp;rsquo;t go out very often. There aren&amp;rsquo;t many providers, and some of them have worse reputations. Changing providers is a disruptive experience with little guarantee of upside. So I&amp;rsquo;m unlikely to change providers and likely to keep paying them.&lt;/p&gt;
+&lt;p&gt;Ironically, I know they have all the data they need to make this experience far better: I have a monthly data quota. They can tell me how much data I&amp;rsquo;ve used after a day or two delay. so somewhere, some part of their system is aware of how much internet traffic is coming from my modem. Some part of their system is aware of whether or not my cable modem is connected. And these systems could be connected together to provide a more-or-less real-time account view.&lt;/p&gt;
+&lt;p&gt;Would it be easy? Maybe not. It could be their systems aren&amp;rsquo;t real-time currently. Maybe they have a mix of systems that don&amp;rsquo;t easily talk to one another.&lt;/p&gt;
+&lt;p&gt;In short, it is likely expensive to do what I&amp;rsquo;m suggesting. So given little upside, why make a substantial investment? Terrible UX is likely a very good business decision.&lt;/p&gt;
+&lt;h1 id="so-what"&gt;So what&lt;/h1&gt;
+&lt;p&gt;I don&amp;rsquo;t like this answer. I don&amp;rsquo;t want low-quality experiences to be good business decisions.&lt;/p&gt;
+&lt;p&gt;Yet if I extrapolate this logic out, a principle suggests itself:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Bad user experience is inevitable when customers have few choices.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;That is, good user experience emerges when customers have real choices, the better experience makes a significant impact to them, and there&amp;rsquo;s enough profit margin in the industry to support experience design.&lt;/p&gt;
+&lt;p&gt;Is the principle true? I don&amp;rsquo;t know. I&amp;rsquo;m guessing many of my user experience coworkers would be appalled.&lt;/p&gt;
+&lt;p&gt;What do you think? What incentive would it take for my internet provider to create a decent outage experience?&lt;/p&gt;</content><category term="software design"></category><category term="user experience"></category><category term="system design"></category><category term="incentives"></category></entry><entry><title>SOLID vs. WARMED</title><link href="https://rayalan.github.io/solid-vs-warmed.html" rel="alternate"></link><published>2024-04-29T00:00:00-04:00</published><updated>2024-04-29T00:00:00-04:00</updated><author><name>Alan Ray</name></author><id>tag:rayalan.github.io,2024-04-29:/solid-vs-warmed.html</id><summary type="html">
 &lt;p&gt;Some time ago, I caught this &lt;a href="https://www.youtube.com/watch?v=7YpFGkG-u1w"&gt;Molly Rocket video&lt;/a&gt; about where bad code comes from. It’s a great video and well worth watching in its entirety. But today I want to highlight his critique of SOLID and his WARMED counter-proposal.&lt;/p&gt;
 &lt;h1 id="solid"&gt;SOLID&lt;/h1&gt;
 &lt;p&gt;For those unfamiliar with it, &lt;a href="https://en.wikipedia.org/wiki/SOLID"&gt;SOLID&lt;/a&gt; is a …&lt;/p&gt;</summary><content type="html">
@@ -256,7 +445,7 @@
 &lt;p&gt;No doubt that this is a hard problem – that is, in part why there are so many security vulnerabilities – but it’s the kind of problem that we’d solve in order to make truly quick turnaround a competitive advantage.&lt;/p&gt;
 &lt;h1 id="established-patterns"&gt;Established patterns&lt;/h1&gt;
 &lt;p&gt;The idea of modularity and well-established patterns extends beyond security and data protection. For example, if one is shipping a new feature, there need to be metrics – is the feature working as expected? Is anyone using it? Does anyone like it?&lt;/p&gt;
-&lt;p&gt;In a fast turnaround environment, the way that these questions {{{VERB}}} can’t be recreated each time. Instead, the very act of writing a new feature should add the necessary dashboards and metrics. When I write code like this:&lt;/p&gt;
+&lt;p&gt;In a fast turnaround environment, the way that these questions are answered can’t be recreated each time. Instead, the very act of writing a new feature should add the necessary dashboards and metrics. When I write code like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;if FEATURE_FLAG_COOL_NEW_THING:
   page.add(myNewFeature(options))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
